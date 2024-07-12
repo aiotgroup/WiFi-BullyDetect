@@ -1,0 +1,61 @@
+{
+  "datetime": "",
+  "endtime": "",
+  "path": {
+    "datasource_path": "/path/to/dataset/",
+    "log_path": {},
+    "result_path": "",
+    "basic_path": {
+        "project_path": "/path/to/project/",
+        "python_path": "/path/to/anaconda/envs/xxx/bin/python3",
+        "log_path": "/path/to/project/log",
+        "result_path": "/path/to/project/result"
+    }
+  },
+  "dataset": {
+    "dataset_name": "",
+    "dataset_setting": {},
+    "dataset_info": {}
+  },
+  "model": {
+    "backbone_name": "",
+    "head_name": "",
+    "strategy_name": "",
+    "backbone_setting": {},
+    "head_setting": {},
+    "strategy_setting": {
+      "strategy_name": "",
+      "calc_data": "raw"
+    }
+  },
+  "training": {
+    "DDP": {
+      "enable": true,
+      "devices": [0, 1]
+    },
+    "use_gpu": true,
+    "gpu": 0,
+    "pretrain": {
+      "enable": false,
+      "path": "",
+      "ratio": 0.1
+    }
+  },
+  "testing": {
+    "Specified": false,
+    "path": ""
+  },
+  "learning": {
+    "train_batch_size": 64,
+    "test_batch_size": 64,
+    "num_epoch": 500,
+    "opt_method": "adamw",
+    "lr_rate": 0.0002,
+    "lr_rate_adjust_epoch": 50,
+    "lr_rate_adjust_factor": 0.5,
+    "weight_decay": 0.0001,
+    "save_epoch": 501,
+    "eval_epoch": 501,
+    "patience": 0
+  }
+}
