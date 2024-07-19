@@ -1,7 +1,7 @@
 # WiFi-BullyDetect 👋
 
 <p align="center">
-  <img src="img/README_img/overall.png" alt="image-20240719171906628" style="zoom:50%;" />
+  <img src="img/README_img/overall.png" alt="image-20240719171906628" width="600px"/>
 </p>
 
 **BullyDetect** is a novel method designed to detect physical bullying and violence in schools by leveraging Wi-Fi signals. This innovative approach aims to enhance safety and well-being in educational environments.
