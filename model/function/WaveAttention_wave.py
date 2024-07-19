@@ -43,7 +43,7 @@ class WaveAttention_res(nn.Module):
 
 if __name__ == '__main__':
 
-    import numpy as np
+    pass
     # def _pickup_patching(batch_data):
     #     # batch_size, n_channels, seq_len
     #     batch_size, n_channels, seq_len = batch_data.size()
