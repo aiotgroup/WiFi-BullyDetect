@@ -76,7 +76,7 @@ class RWT_config(ModelConfig):
 
 def RWT(config: RWT_config):
 
-    model = WaveVit(
+    model = RWT_model(
         dropout=config.dropout,
         drop_path=config.droppath,
         high_ratio=config.high_ratio,
@@ -164,9 +164,9 @@ class Block(nn.Module):
         x = x + self.drop_path2(self.ls2(self.mlp(self.norm2(x))))
         return x
 
-class WaveVit(nn.Module):
+class RWT_model(nn.Module):
     def __init__(self,
-                 model_name = 'wavevit_timm_s_16',
+                 model_name = 'RWT_waveres',
                  num_classes = 10,
                  n_channel = 90,
                  seq_len = 2000,

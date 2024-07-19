@@ -16,26 +16,54 @@ if __name__ == '__main__':
     '''
         {backbone}_{atten}_{layer}_{scale}_{patch_size}_{dropout}_{droppath}
     '''
+    '''
+        {model}, {batch_size}, {epoch}
+    '''
     model_str_list = [
-        ('RWT_waveres_8_s_16_0.4_0.1', 64),
-        # ('RWT_waveres_8_s_16_0.4_0.1', 64, 0.3),
-        # ('RWT_waveres_8_s_16_0.4_0.1', 64, 0.4),
+        ('RWT_waveres_8_s_8_0.4_0.1', 64, 500),
+        ('RWT_waveres_8_s_16_0.4_0.1', 64, 500),
+        ('RWT_waveres_8_s_32_0.4_0.1', 64, 500),
+        ('RWT_waveres_8_b_16_0.4_0.1', 64, 500),
+        ('RWT_waveres_8_b_32_0.4_0.1', 64, 500),
+        ('RWT_waveres_8_b_64_0.4_0.1', 64, 500),
+
+        ('RWT_timm_8_s_8_0.4_0.1', 64, 500),
+        ('RWT_timm_8_s_16_0.4_0.1', 64, 500),
+        ('RWT_timm_8_s_32_0.4_0.1', 64, 500),
+        ('RWT_timm_8_b_16_0.4_0.1', 64, 500),
+        ('RWT_timm_8_b_32_0.4_0.1', 64, 500),
+        ('RWT_timm_8_b_64_0.4_0.1', 64, 500),
     ]
 
     dataset_str_list = [
-        'WiVioFT-1-0.2_i-window-w-s',
-        # 'WiVioFT-1-0.2_i-window-w-s',
-        # 'WiVioFT-1-0.3_i-window-w-s',
-        # 'WiVioFT-1-0.4_i-window-w-s',
-        # 'WiVioFT-1-0.5_i-window-w-s',
-        # 'WiVioLoc-1_i-window-w-s',
+
+        # 'WiVio_None',
+        # 'WiVio_i-jitter',
+        # 'WiVio_i-window-s',
+        # 'WiVio_i-window-w',
+        # 'WiVio_i-magwarp',
+        # 'WiVio_i-scaling',
+        # 'WiVio_i-window-w-j',
+        # 'WiVio_i-window-w-m',
+        # 'WiVio_i-window-w-s',
+        # 'WiVio_None',
+        # 'WiVio_i-jitter',
+        # 'WiVio_i-window-s',
+        # 'WiVio_i-window-w',
+        # 'WiVio_i-magwarp',
+        # 'WiVio_i-scaling',
+        # 'WiVio_i-window-w-j',
+        # 'WiVio_i-window-w-m',
+        'WiVio_i-window-w-s',
     ]
+
 
     for dataset_str in dataset_str_list:
         dataset_setting = get_dataset_setting(dataset_str)
         for model_str in model_str_list:
             model_set   = model_str[0]
             batch_size  = model_str[1]
+            epoch       = model_str[2]
 
             backbone_setting = get_model_setting(model_set)
 
@@ -43,21 +71,16 @@ if __name__ == '__main__':
 
             config['datetime'] = get_time()
 
-            # DPP setting =======================================================================================
             config["training"]["DDP"]["enable"] = True
-            config["training"]["DDP"]["devices"] = [2, 3]
+            config["training"]["DDP"]["devices"] = [3]
             test_gpu = 3
 
-            # pretrain 设置 ======================================================================================
-            config["training"]["pretrain"]["enable"] = True
-            # config["training"]["pretrain"]["path"] = "/home/lanbo/RWT_wifi_code/result/05-18/WiVio_i-window-w-s_RWT_waveres_8_s_16_0.4_0.1/RWT_waveres_8_s_16_0.4_0.1-final"
-            config["training"]["pretrain"]["path"] = "/home/lanbo/RWT_wifi_code/result/05-23/pretrain-1/WiVioLoc-1_i-window-w-s_RWT_waveres_8_s_16_0.4_0.1/RWT_waveres_8_s_16_0.4_0.1-final"
-            config["training"]["pretrain"]["ratio"] = dataset_setting['ratio']
-            tag = 'pretrain'
+            # TAG ===============================================================================================
+            tag = f'model_size'
 
             # 数据集路径 ==========================================================================================
-            config['path']['datasource_path'] = "/home/lanbo/dataset/wifi_violence_processed_loc_class/"
-            # config['path']['datasource_path'] = '/home/lanbo/dataset/wifi_violence_processed_loc/'
+            # config['path']['datasource_path'] = "/home/lanbo/dataset/wifi_violence_processed_loc_class/"
+            config['path']['datasource_path'] = '/home/lanbo/dataset/wifi_violence_processed_loc/'
 
             config['path']['log_path']      = get_log_path(config, day, dataset_str, model_set, tag)
             config['path']['result_path']   = get_result_path(config, day, dataset_str, model_set, tag)
@@ -77,9 +100,10 @@ if __name__ == '__main__':
 
             config['learning']['train_batch_size'] = int(batch_size)
             config['learning']['test_batch_size'] = int(batch_size)
+            config['learning']['save_epoch']  = 400
 
             # epoch =============================================================================================
-            config["learning"]["num_epoch"] = 30
+            config["learning"]["num_epoch"] = epoch
             # ===================================================================================================
 
             write_setting(config, os.path.join(config['path']['result_path'], 'setting.json'))
