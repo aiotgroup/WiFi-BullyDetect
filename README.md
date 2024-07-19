@@ -12,8 +12,8 @@ For more details on BullyDetect, refer to our paper: [**"BullyDetect: Detecting 
 
 The dataset used for BullyDetect is essential for training and evaluating the detection models. It includes both the original and preprocessed data.
 
-- **Original Dataset**: [Download Link](#)
-- **Preprocessed Dataset**: [Download Link](#)
+- **Original Dataset**: [Download Link](https://www.kaggle.com/datasets/laptype/wifi-bullydetect)
+- **Preprocessed Dataset**: [Download Link](https://www.kaggle.com/datasets/laptype/wifi-bullydetect)
 
 Ensure you download and prepare the dataset as per the instructions provided to achieve optimal results with the BullyDetect system.
 
