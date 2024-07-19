@@ -38,5 +38,8 @@ Ensure you have the required Python packages. Install them using:
    ```bash
    python script/basic_train.py
    ```
+## Contacts Us ✉️
+For any queries, you are welcome to open an issue.
+
 ## License 📜
 BullyDetect is licensed under the MIT License. See the LICENSE file for more details.
