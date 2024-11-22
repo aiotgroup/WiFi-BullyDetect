@@ -6,7 +6,7 @@
 
 **BullyDetect** is a novel method designed to detect physical bullying and violence in schools by leveraging Wi-Fi signals. This innovative approach aims to enhance safety and well-being in educational environments.
 
-For more details on BullyDetect, refer to our paper: [**"BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer"**](#)
+For more details on BullyDetect, refer to our paper: [**"BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer"**](https://ieeexplore.ieee.org/document/10734315)
 
 ## Dataset 📊
 
@@ -38,6 +38,24 @@ Ensure you have the required Python packages. Install them using:
    ```bash
    python script/basic_train.py
    ```
+
+## Citations 📄
+
+If you find our works useful in your research, please consider citing:
+```BibTeX
+@ARTICLE{10734315,
+  author={Lan, Bo and Wang, Fei and Xia, Lekun and Nai, Fan and Nie, Shiqiang and Ding, Han and Han, Jinsong},
+  journal={IEEE Internet of Things Journal}, 
+  title={BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Wireless fidelity;Transformers;Noise;Videos;Data augmentation;Cameras;Sensors;Representation learning;Internet of Things;Surveillance;Wi-Fi sensing;physical bullying detection;wavelet transformer;data augmentation;deep learning},
+  doi={10.1109/JIOT.2024.3486071}
+}
+```
+
 ## Contacts Us ✉️
 For any queries, you are welcome to open an issue.
 
