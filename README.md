@@ -49,7 +49,7 @@ BullyDetect is licensed under the MIT License. See the LICENSE file for more det
 
 If you find our works useful in your research, please consider citing:
 ```BibTeX
-@ARTICLE{10734315,
+@ARTICLE{lan2024bullydetect,
   author={Lan, Bo and Wang, Fei and Xia, Lekun and Nai, Fan and Nie, Shiqiang and Ding, Han and Han, Jinsong},
   journal={IEEE Internet of Things Journal}, 
   title={BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer}, 
