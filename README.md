@@ -38,6 +38,12 @@ Ensure you have the required Python packages. Install them using:
    ```bash
    python script/basic_train.py
    ```
+   
+## Contacts Us ✉️
+For any queries, you are welcome to open an issue.
+
+## License 📜
+BullyDetect is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Citations 📄
 
@@ -48,16 +54,7 @@ If you find our works useful in your research, please consider citing:
   journal={IEEE Internet of Things Journal}, 
   title={BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer}, 
   year={2024},
-  volume={},
-  number={},
-  pages={1-1},
   keywords={Wireless fidelity;Transformers;Noise;Videos;Data augmentation;Cameras;Sensors;Representation learning;Internet of Things;Surveillance;Wi-Fi sensing;physical bullying detection;wavelet transformer;data augmentation;deep learning},
   doi={10.1109/JIOT.2024.3486071}
 }
 ```
-
-## Contacts Us ✉️
-For any queries, you are welcome to open an issue.
-
-## License 📜
-BullyDetect is licensed under the MIT License. See the LICENSE file for more details.
